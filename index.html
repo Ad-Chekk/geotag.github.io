@@ -1,12 +1,12 @@
-wassup my g
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style></style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image Editing</title>
 
-  <button onclick="getLocation()">Try It</button>
+  <button onclick="getLocation()">Retrive Your GeoTagging Data</button>
 </head>
 <br>
 <p id="demo"></p>
@@ -16,8 +16,7 @@ wassup my g
   <canvas id="canvas" width="400" height="300"></canvas>
 
   <script>
-
-  // Create a new Date object
+// Create a new Date object
 const currentDate = new Date();
 const day = currentDate.getDate();
 const month = currentDate.getMonth() + 1; // Month is zero-based, so add 1
@@ -35,21 +34,20 @@ let Meta_list=[];
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition, showError);
-  } else { 
+  } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
 
 function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  x.innerHTML = "Latitude: " + position.coords.latitude +
   "<br>Longitude: " + position.coords.longitude +"<br>"+
-  position.coords.altitude+"<br>"+ position.coords.altitudeAccuracy +"<br>" +Current_DT
-  ;
+  position.coords.altitude+"<br>"+ position.coords.accuracy +"<br>" +Current_DT;
 
   let lat="Latitude: "+position.coords.latitude;
   let long="Longitude: "+ position.coords.longitude;
   let alt="Altitude: "+ position.coords.altitude;
-  let Accu="Accuracy: "+ position.coords.altitudeAccuracy;
+  let Accu="Accuracy: "+ position.coords.accuracy;
   let Time = Current_DT
   let Note = "Note: "
   Meta_list = [Note,Time,Accu,alt,long,lat]
@@ -75,7 +73,7 @@ function showError(error) {
       const input = document.getElementById('imageInput');
       const canvas = document.getElementById('canvas');
       const ctx = canvas.getContext('2d');
-      
+
       const image = new Image();
 
       image.onload = function() {
@@ -84,9 +82,9 @@ function showError(error) {
         wid=parseInt(image.width);
         hei=parseInt(image.height);
          canvas.width = 1000;     //image.width
-         canvas.height = 500;     //image.height for highest clarity 
-                                                                   //document.write(wid+" -- "+ hei);  failed 
-                                                                 //change it accordingly afterwards  adjust 
+         canvas.height = 500;     //image.height for highest clarity
+                                                                   //document.write(wid+" -- "+ hei);  failed
+                                                                 //change it accordingly afterwards  adjust
 
         // Draw the image on the canvas without stretching
         ctx.drawImage(image, 0, 0,canvas.width, canvas.height);
@@ -94,7 +92,7 @@ function showError(error) {
                                                                      // Add a grey box at the bottom left
         ctx.fillStyle = 'rgba(128, 128, 128, 0.7)';
         ctx.fillRect(0, canvas.height - 100, 200, 190);
-       
+
         // Add text to the grey box
         ctx.fillStyle = 'black';
         ctx.font = '17px Arial';
@@ -105,9 +103,9 @@ function showError(error) {
           ctx.fillText(text, 10, verticalPosition);
           verticalPosition -= 15; // Adjust the vertical position for the next text
         }
-        
+
       };
-      
+
 
       // Load the selected image
       const file = input.files[0];
@@ -118,7 +116,7 @@ function showError(error) {
         };
         reader.readAsDataURL(file);
       }
-      
+
     }
   </script>
 </body>
