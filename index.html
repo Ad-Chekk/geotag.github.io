@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style></style>
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image Editing</title>
 
-  <button onclick="getLocation()">Retrive Your GeoTagging Data</button>
+  <button id="retrive" onclick="getLocation()">Retrive Your GeoTagging Data</button>
+<button id="refresh" onclick="getLocation()"><svg id="refreshIcon" viewBox="0 0 24 24">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 13h-2v-2h2v2zm1-10h-2v6h2V5z"/>
+</svg> Refresh</button>
+
 </head>
 <br>
 <p id="demo"></p>
 
 <body>
-  <input type="file" id="imageInput" onchange="handleImageUpload()">
+  <input itemid="camera" type="file" id="imageInput" onchange="handleImageUpload()">
+  <button onclick="downloadImage()">Download Image</button>
   <canvas id="canvas" width="400" height="300"></canvas>
 
   <script>
@@ -106,7 +112,6 @@ function showError(error) {
 
       };
 
-
       // Load the selected image
       const file = input.files[0];
       if (file) {
@@ -116,6 +121,24 @@ function showError(error) {
         };
         reader.readAsDataURL(file);
       }
+
+function downloadImage() {
+  let canvas = document.getElementById('canvas');
+
+  // Convert canvas content to a data URL
+  const dataURL = canvas.toDataURL('image/png');
+
+  // Create a link element
+  const downloadLink = document.createElement('a');
+  downloadLink.href = dataURL;
+  downloadLink.download = 'edited-image.png'; // Set the desired file name
+
+  // Append the link to the document and trigger the click event
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+
+
+}
 
     }
   </script>
