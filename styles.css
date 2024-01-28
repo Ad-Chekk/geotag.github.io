@@ -43,3 +43,16 @@ body {
     fill: #fff; /* Icon color */
     margin-right: 5px; /* Margin to separate icon from text */
   }
+
+#download{
+    background-color: #000000;
+    border-radius: 1000px;
+    color: #fff;
+    border-color: darkgoldenrod;
+    border-width: 3px;
+}  
+
+#download:hover{
+    background-color: aliceblue;
+    color: #000000;
+}
