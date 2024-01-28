@@ -1,0 +1,45 @@
+body {
+    background-color: black;
+    color: #f0fcff; /* Light yellow text color */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Add additional styles for specific elements if needed */
+  #retrive{
+   background-color: rgb(251, 255, 6);
+   color: black; /*  text colour     */
+   padding: 10px 40px;
+   font-size: 20px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   border-radius: 5px;
+   border-color: rgb(0, 179, 255);
+   border-width: 5px;
+   cursor: pointer;
+  }
+
+  #retrive:hover{
+    background-color: black;
+    color: rgb(238, 255, 0);
+  }
+
+#refresh{
+    background-color: #3ce2ff; /* Button background color */
+    color: #000000; /* Button text color */
+    
+    border-radius: 1000px; /* Border radius for a slightly rounded appearance */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 20px; /* Font size */
+    cursor: pointer; /* Cursor style on hover */
+    transition: background-color 0.5s; 
+    border-color: rgb(164, 237, 255);
+    border-width: 10px;
+}
+#refresh:hover{
+    background-color: #2980b9;
+}
+#refreshIcon {
+    width: 16px; /* Icon width */
+    height: 16px; /* Icon height */
+    fill: #fff; /* Icon color */
+    margin-right: 5px; /* Margin to separate icon from text */
+  }
